@@ -1,0 +1,11 @@
+:root {
+  --main-bg-color: coral;
+  --header-color-1: #827b7b;  
+  --tab-bar-background: #eaedef;
+}
+.side-menu{
+  background-color: #272e56 !important;
+}
+.highcharts-credits{
+  display: none !important;
+}
