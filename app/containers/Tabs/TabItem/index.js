@@ -25,6 +25,37 @@ const ItemTab = styled.div`
   color: var(--header-color-1);
   align-items: center;
   background-color: var(--tab-bar-background);
+  &:hover{
+    background-color: var(--tab-bar-background-hover);
+    border-top-left-radius: var(--tar-border-radius);
+    border-top-right-radius: var(--tar-border-radius);
+  }
+  &:hover::before{
+    content:'';
+    position: absolute;
+    bottom: 0;
+    left: -3px;
+    z-index: 9999999;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid var(--tab-bar-background-hover);
+  }
+  &:hover::after{
+    content:'';
+    position: absolute;
+    bottom: 0;
+    right: -3px;
+    z-index: 9999999;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid var(--tab-bar-background-hover);
+  }
   &.selected::before{
     content:'';
     position: absolute;
@@ -37,11 +68,13 @@ const ItemTab = styled.div`
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 10px solid #ffffff;
+    transform: translateZ(2px);
   }
   &.selected{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: var(--tar-border-radius);
+    border-top-right-radius: var(--tar-border-radius);
     background-color:#ffffff;
+    transform-style: preserve-3d;
   }
   &.selected::after{
     content:'';
@@ -55,21 +88,21 @@ const ItemTab = styled.div`
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 10px solid #ffffff;
+    transform: translateZ(2px);
   }
 `;
 const CloseTabButton = styled.div`
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   display: flex;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
-  padding: 4px;
   border-radius:50%;
   place-self: center;
   position: absolute;
   right: 8px;
   &:hover{
-    background-color: #cbcbcc;
+    background-color: #cbcbcc8a;
   }
 `
 const TabTitle = styled.div`
@@ -91,7 +124,7 @@ const TabTitle = styled.div`
 export const TabItem = memo((props) => {
   useInjectReducer({ key, reducer });
   const memoItem = props.item;
-  console.log("33333333333333333333",props.item.id, memoItem);
+  console.log("33333333333333333333",memoItem.id, memoItem);
   return (
     <ItemTab className={"tab-item" + (memoItem.selected ? " selected" : "")}
       onClick={
@@ -99,7 +132,9 @@ export const TabItem = memo((props) => {
       }>
       <Icon16 src={memoItem.iconSrc} alt="icon" />
       <TabTitle> {memoItem.name}</TabTitle>
-      <CloseTabButton><FontAwesomeIcon icon={faTimes} /></CloseTabButton>
+      <CloseTabButton onClick={(e)=> closeTab(e)}>
+        <svg style={{width:"13px",height:"13px",color:"#665c5c"}} aria-hidden="true" focusable="false" data-prefix="fal" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10 fa-2x"><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path></svg>
+      </CloseTabButton>
     </ItemTab>
   );
 },shouldNotRerender);
@@ -108,7 +143,9 @@ function shouldNotRerender(prevProps, nextProps) {
   console.log("PPPPPPP", prevProps);
   return prevProps.item.selected == nextProps.item.selected;
 }
+function closeTab(e){
 
+}
 TabItem.propTypes = {
   item: PropTypes.any,
   onChangeSelectedTab: PropTypes.func

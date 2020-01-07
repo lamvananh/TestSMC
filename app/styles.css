@@ -2,6 +2,8 @@
   --main-bg-color: coral;
   --header-color-1: #827b7b;  
   --tab-bar-background: #eaedef;
+  --tab-bar-background-hover: #f9f9f9;
+  --tar-border-radius:7px;
 }
 .side-menu{
   background-color: #272e56 !important;
