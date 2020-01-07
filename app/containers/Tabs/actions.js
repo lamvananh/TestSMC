@@ -15,7 +15,7 @@
  *    }
  */
 
-import { CHANGE_TAB } from './constants';
+import { CHANGE_TAB, ADD_TAB, REMOVE_TAB } from './constants';
 
 /**
  * Changes the input field of the form
@@ -25,9 +25,25 @@ import { CHANGE_TAB } from './constants';
  * @return {object} An action object with a type of CHANGE_USERNAME
  */
 export function changeTab(selectedTab) {
-  console.log(111111111111);
+  console.log("Tab action change........");
   return {
     type: CHANGE_TAB,
     selectedTab,
+  };
+}
+
+export function removeTab(selectedTab) {
+  console.log("Tab action remove........");
+  return {
+    type: REMOVE_TAB,
+    selectedTab,
+  };
+}
+
+export function AddTab(tab) {
+  console.log("Tab action add........");
+  return {
+    type: ADD_TAB,
+    tab,
   };
 }

@@ -12,11 +12,6 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
 import { useInjectReducer } from 'utils/injectReducer';
-import {
-  makeSelectRepos,
-  makeSelectLoading,
-  makeSelectError,
-} from 'containers/App/selectors';
 import messages from './messages';
 import { addTabs } from '../App/actions';
 import { makeSelectTabList } from './selectors';
@@ -38,9 +33,12 @@ export function Tabs({
   const tabListProps = {
     tabs
   };
-
+  console.log("TABBBBBBBBB",{...tabListProps});
   return (
-        <TabList {...tabListProps}></TabList>
+    <React.Fragment>
+      <TabList {...tabListProps}></TabList>
+    </React.Fragment>
+
   );
 }
 
@@ -54,7 +52,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 export function mapDispatchToProps(dispatch) {
-  return {   
+  return {
   };
 }
 

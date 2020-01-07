@@ -10,3 +10,5 @@
  */
 
 export const CHANGE_TAB = 'boilerplate/Tabs/CHANGE_TAB';
+export const ADD_TAB = 'boilerplate/Tabs/ADD_TAB';
+export const REMOVE_TAB = 'boilerplate/Tabs/REMOVE_TAB';

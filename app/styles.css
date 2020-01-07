@@ -11,3 +11,6 @@
 .highcharts-credits{
   display: none !important;
 }
+.menu-bar{
+  transform: translateZ(2px);
+}

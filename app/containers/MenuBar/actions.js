@@ -25,7 +25,6 @@ import { CHANGE_MENU } from './constants';
  * @return {object} An action object with a type of CHANGE_USERNAME
  */
 export function changeMenuItem(selectedTab) {
-  console.log(111111111111);
   return {
     type: CHANGE_MENU,
     selectedTab,
