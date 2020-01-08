@@ -11,7 +11,7 @@ import { connect, useSelector, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { useInjectReducer } from 'utils/injectReducer';
 import { makeSelectTabList } from '../selectors';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 const key = 'tab-item';
 const ItemTab = styled(Link)`
   position:relative;
@@ -123,11 +123,11 @@ const TabTitle = styled.div`
     background:linear-gradient(transparent 150px, white);
   }
 `;
-export const TabItem = memo((props) => {
+export function TabItem(props) {
   useInjectReducer({ key, reducer });
   const memoItem = props.item;
   console.log("TabItem..........", memoItem.selected);
-  return (
+  return <React.Fragment>
     <ItemTab className={"tab-item" + (memoItem.selected ? " selected" : "")} to={memoItem.url}
       onClick={
         () => {
@@ -136,12 +136,16 @@ export const TabItem = memo((props) => {
       }>
       <Icon16 src={memoItem.iconSrc} alt="icon" />
       <TabTitle> {memoItem.name}</TabTitle>
-      <CloseTabButton onClick={(e) => {props.onRemoveTab(memoItem);e.stopPropagation();}}>
+      <CloseTabButton onClick={(event) => { props.onRemoveTab(event, memoItem); }}>
         <svg style={{ width: "13px", height: "13px", color: "#665c5c" }} aria-hidden="true" focusable="false" data-prefix="fal" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="svg-inline--fa fa-times fa-w-10 fa-2x"><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" ></path></svg>
       </CloseTabButton>
     </ItemTab>
-  );
-}, shouldNotRerender);
+    {
+      // redirect vể url tương ứng khi chỉ định tab được chọn
+      (memoItem.selected && window.location.pathname != memoItem.url) ? <Redirect to={memoItem.url} /> : null
+    }
+  </React.Fragment>
+}
 
 function shouldNotRerender(prevProps, nextProps) {
   console.log("PPPPPPP", prevProps);
@@ -159,10 +163,14 @@ const mapStateToProps = createStructuredSelector({
 export function mapDispatchToProps(dispatch) {
   return {
     onChangeSelectedTab: item => {
-      dispatch(changeTab(item))
+      console.log("tabItem click..........");
+      dispatch(changeTab(item));
     },
-    onRemoveTab: item => {
-      dispatch(removeTab(item))
+    onRemoveTab: (event, item) => {
+      console.log("tabItem children click..........", event);
+      dispatch(removeTab(item));
+      event.stopPropagation();
+      event.preventDefault();
     }
   };
 }
@@ -173,4 +181,4 @@ const withConnect = connect(
 );
 export default compose(
   withConnect,
-)(TabItem);
+)(memo(TabItem, shouldNotRerender));

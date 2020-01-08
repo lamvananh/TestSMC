@@ -28,7 +28,7 @@ const tabReducer = (state = initialState, action) =>
         let indexTab = draft.tabs.findIndex(tab => tab.id == action.selectedTab.id);
         console.log("indexTab tab reducer",indexTab);
         draft.tabs = draft.tabs.filter(item => item.id != action.selectedTab.id);
-        if (indexTab >= 0 && indexTab <= draft.tabs.length - 2) { // nếu còn có tab ở bên phải tab hiện tại
+        if (indexTab >= 0 && indexTab <= draft.tabs.length - 1) { // nếu còn có tab ở bên phải tab hiện tại
           if (!draft.tabs.find(item => item.selected == true)) {
             draft.tabs[indexTab].selected = true;
             console.log("tab reducer SELECTED...........",draft );

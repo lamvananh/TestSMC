@@ -20,8 +20,7 @@ import TabList from './tabList'
 const key = 'tabs';
 
 export function Tabs({
-  tabs,
-  onLoadMockTab
+  tabs
 }) {
   useInjectReducer({ key, reducer });
 

@@ -12,6 +12,7 @@ import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/rea
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faChartLine } from '@fortawesome/free-solid-svg-icons'
+import { Link, Redirect } from 'react-router-dom';
 const key = 'menu';
 
 export function MenuBar({
@@ -29,24 +30,25 @@ export function MenuBar({
   };
 
   return (
-    <SideNav className = "side-menu"
+    <SideNav className="side-menu"
       onSelect={(selected) => {
         // Add your code here
+        console.log("Menu......",selected);
       }}
     >
       <SideNav.Toggle />
       <SideNav.Nav defaultSelected="home">
         <NavItem eventKey="home">
           <NavIcon>
-          <FontAwesomeIcon icon= {faHome} style={{ fontSize: '1.75em' }} />
+            <FontAwesomeIcon icon={faHome} style={{ fontSize: '1.75em' }} />
           </NavIcon>
           <NavText>
-            Home
-            </NavText>
+           <Link to ="/" >Home</Link>
+          </NavText>
         </NavItem>
         <NavItem eventKey="charts">
           <NavIcon>
-          <FontAwesomeIcon icon= {faChartLine} style={{ fontSize: '1.75em' }} />
+            <FontAwesomeIcon icon={faChartLine} style={{ fontSize: '1.75em' }} />
           </NavIcon>
           <NavText>
             Charts
