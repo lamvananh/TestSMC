@@ -20,77 +20,26 @@ const ItemTab = styled(Link)`
   max-width: 200px;
   min-width: 70px;
   background-color: #eaedef;
-  height: 35px;
+  height: 40px;
   font-size: 13px;
-  padding: 5px 20px 5px 15px;
-  color: var(--header-color-1);
+  padding: 10px 20px 5px 15px;
+  color: var(--main-text-light-color);
   align-items: center;
-  background-color: var(--tab-bar-background);
+  background-color: var(--main-bg-color);
   text-decoration: none;
+  transition: .2s;
   &:hover{
     background-color: var(--tab-bar-background-hover);
     border-top-left-radius: var(--tar-border-radius);
     border-top-right-radius: var(--tar-border-radius);
-  }
-  &:hover::before{
-    content:'';
-    position: absolute;
-    bottom: 0;
-    left: -3px;
-    z-index: 9999999;
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 10px solid var(--tab-bar-background-hover);
-  }
-  &:hover::after{
-    content:'';
-    position: absolute;
-    bottom: 0;
-    right: -3px;
-    z-index: 9999999;
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 10px solid var(--tab-bar-background-hover);
-  }
-  &.selected::before{
-    content:'';
-    position: absolute;
-    bottom: 0;
-    left: -3px;
-    z-index: 9999999;
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 10px solid #ffffff;
-    transform: translateZ(2px);
+    color : var(--main-text-dark-color);
   }
   &.selected{
     border-top-left-radius: var(--tar-border-radius);
     border-top-right-radius: var(--tar-border-radius);
     background-color:#ffffff;
     transform-style: preserve-3d;
-  }
-  &.selected::after{
-    content:'';
-    position: absolute;
-    bottom: 0;
-    right: -3px;
-    z-index: 9999999;
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 10px solid #ffffff;
-    transform: translateZ(2px);
+    color : var(--main-text-dark-color);
   }
 `;
 const CloseTabButton = styled.div`
@@ -105,6 +54,12 @@ const CloseTabButton = styled.div`
   right: 8px;
   &:hover{
     background-color: #cbcbcc8a;
+  }
+  &:hover svg{
+    color: color : var(--main-text-dark-color);
+  }
+  $ svg{
+    color: color : var(--main-text-light-color);
   }
 `
 const TabTitle = styled.div`
@@ -137,7 +92,7 @@ export function TabItem(props) {
       <Icon16 src={memoItem.iconSrc} alt="icon" />
       <TabTitle> {memoItem.name}</TabTitle>
       <CloseTabButton onClick={(event) => { props.onRemoveTab(event, memoItem); }}>
-        <svg style={{ width: "13px", height: "13px", color: "#665c5c" }} aria-hidden="true" focusable="false" data-prefix="fal" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="svg-inline--fa fa-times fa-w-10 fa-2x"><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" ></path></svg>
+        <svg style={{ width: "13px", height: "13px"}} aria-hidden="true" focusable="false" data-prefix="fal" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="svg-inline--fa fa-times fa-w-10 fa-2x"><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" ></path></svg>
       </CloseTabButton>
     </ItemTab>
     {

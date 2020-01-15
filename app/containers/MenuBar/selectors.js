@@ -5,12 +5,14 @@
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
-const selectMenus = state => state.menu || initialState;
+const selectMenus = state => state || initialState;
 
-const makeSelectMenuList = () =>
+
+const makeSideBarOpen = () =>{
   createSelector(
     selectMenus,
-    menuState => menuState.menu,
+    menuState => menuState.sideMenuOpened,
   );
+}
 
-export { selectMenus, makeSelectMenuList };
+export { selectMenus,makeSideBarOpen };

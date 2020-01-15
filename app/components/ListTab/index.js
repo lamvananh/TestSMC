@@ -7,12 +7,12 @@ const ComponentToRender = props.component;
   let content = <div />;
 const ListTab = styled.div`
   display: flex;
-  background-color: var(--tab-bar-background);
+  background-color: var(--main-bg-color);
   position:sticky;
   top:0;
-  border-bottom: 5px solid #FFF;
-  padding: 0 0 0 70px;
+  padding: 0 0 0 0px;
   z-index:9;
+  padding-top:20px;
 `;
   // If we have items, render them
   if (props.items) {

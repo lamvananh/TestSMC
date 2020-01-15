@@ -12,5 +12,15 @@ const makeSelectUsername = () =>
     selectHome,
     homeState => homeState.username,
   );
+const makeSelectEvents = () =>
+  createSelector(
+    selectHome,
+    homeState => homeState.eventBlockData,
+  );
+const makeSelectTroubles = () =>
+  createSelector(
+    selectHome,
+    homeState => homeState.troubleBlockData,
+  );
 
-export { selectHome, makeSelectUsername };
+export { selectHome, makeSelectUsername,makeSelectEvents,makeSelectTroubles };

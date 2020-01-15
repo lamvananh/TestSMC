@@ -5,4 +5,11 @@ const CenteredSection = styled(Section)`
   text-align: center;
 `;
 
-export default CenteredSection;
+const CenteredFlex = styled(Section)`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+`;
+
+export  {CenteredSection,CenteredFlex};

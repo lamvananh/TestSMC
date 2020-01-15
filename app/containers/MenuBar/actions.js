@@ -15,7 +15,7 @@
  *    }
  */
 
-import { CHANGE_MENU } from './constants';
+import { CHANGE_SIDE_MENU_STATE } from './constants';
 
 /**
  * Changes the input field of the form
@@ -24,9 +24,9 @@ import { CHANGE_MENU } from './constants';
  *
  * @return {object} An action object with a type of CHANGE_USERNAME
  */
-export function changeMenuItem(selectedTab) {
+export function changeSideBarOpened(isOpened) {
   return {
-    type: CHANGE_MENU,
-    selectedTab,
+    type: CHANGE_SIDE_MENU_STATE,
+    isOpened,
   };
 }

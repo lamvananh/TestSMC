@@ -40,7 +40,7 @@ export function removeTab(selectedTab) {
   };
 }
 
-export function AddTab(tab) {
+export function addTab(tab) {
   console.log("Tab action add........");
   return {
     type: ADD_TAB,

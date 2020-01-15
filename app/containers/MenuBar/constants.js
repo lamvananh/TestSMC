@@ -9,5 +9,5 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const CHANGE_TAB = 'boilerplate/Tabs/CHANGE_TAB';
 export const CHANGE_MENU = 'boilerplate/MenuBar/CHANGE_MENU';
+export const CHANGE_SIDE_MENU_STATE = 'boilerplate/MenuBar/CHANGE_SIDE_MENU_STATE';

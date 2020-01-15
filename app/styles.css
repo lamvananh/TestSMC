@@ -1,16 +1,36 @@
 :root {
-  --main-bg-color: coral;
+  --main-bg-color: #272e56;
+  --main-text-light-color: #fff;
+  --main-text-dark-color: #000;
+  --main-gray-color: #b7b7bb;
   --header-color-1: #827b7b;  
   --tab-bar-background: #eaedef;
   --tab-bar-background-hover: #f9f9f9;
-  --tar-border-radius:7px;
+  --tar-border-radius:10px;
+  --main-text-color: #fff;
+  --header-height:100px;
+  --side-menu-width: 65px;
+  --error-color:red;
 }
 .side-menu{
   background-color: #272e56 !important;
+  transform: translateZ(2px);
+  position:fixed !important;
+  top: var(--header-height) !important;
 }
 .highcharts-credits{
   display: none !important;
 }
-.side-menu{
-  transform: translateZ(2px);
+
+#app{
+  display: flex;
+  height: auto;
 }
+body, html{
+  margin:0;
+  padding:0;
+  overflow: auto;
+  min-height: 100%;
+  height: 100%;
+}
+

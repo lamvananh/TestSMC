@@ -15,6 +15,7 @@ export const initialState = {
   loading: false,
   error: false,
   currentUser: false,
+  currentUserData: false,
   tabs: [],
   userData: {
     repositories: false,

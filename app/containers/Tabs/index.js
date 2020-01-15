@@ -13,7 +13,6 @@ import { createStructuredSelector } from 'reselect';
 
 import { useInjectReducer } from 'utils/injectReducer';
 import messages from './messages';
-import { addTabs } from '../App/actions';
 import { makeSelectTabList } from './selectors';
 import reducer from './reducer';
 import TabList from './tabList'
