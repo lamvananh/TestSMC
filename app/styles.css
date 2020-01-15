@@ -1,3 +1,9 @@
+@font-face { font-family: "Lato"; src: url('../app/vendor/font/Lato-Regular.ttf'); }
+@font-face { font-family: "Lato"; src: url('../app/vendor/font/Lato-Thin.ttf'); }
+@font-face { font-family: "Lato"; src: url('../app/vendor/font/Lato-Bold.ttf'); }
+@font-face { font-family: "Lato"; src: url('../app/vendor/font/Lato-Italic.ttf'); }
+@font-face { font-family: "Lato"; src: url('../app/vendor/font/Lato-BoldItalic.ttf'); }
+@font-face { font-family: "Lato"; src: url('../app/vendor/font/Lato-Regular.ttf'); }
 :root {
   --main-bg-color: #272e56;
   --main-text-light-color: #fff;
@@ -11,6 +17,9 @@
   --header-height:100px;
   --side-menu-width: 65px;
   --error-color:red;
+  --hight-level-color: #272e56;
+  --medium-level-color: #424d81;
+  --low-level-color: #898b92;
 }
 .side-menu{
   background-color: #272e56 !important;
@@ -34,7 +43,7 @@ body, html{
   height: 100%;
 }
 body.jsFontLoaded{
-  font-family :"Lato"
+  font-family: "Lato";
 }
 .login-container{
   z-index: 2;

@@ -13,7 +13,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body.fontLoaded {
-    font-family:  'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Lato', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  body.fontLoaded .MuiTableCell-root{
+    font-family: 'Lato', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   #app {

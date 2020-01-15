@@ -21,47 +21,78 @@ import TableHead from '@material-ui/core/TableHead';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 const RowHeader = styled.div`
-    width: 100%;
-    padding:4px;
-    display:flex;
-    display: table;
-    & div{
-      padding: 4px 10px;
-      display: table-cell;
-      overflow:hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }    
-`
+  width: 100%;
+  padding: 4px;
+  display: flex;
+  display: table;
+  & div {
+    padding: 4px 10px;
+    display: table-cell;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+`;
+const Status = styled.div`
+  border-radius: 15px;
+  padding: 2px 3px;
+  color: var(--main-text-light-color);
+  font-size: 12px;
+  text-align: center;
+`;
+const HightStatus = styled(Status)`
+  background-color: var(--hight-level-color);
+`;
+const MediumStatus = styled(Status)`
+  background-color: var(--medium-level-color);
+`;
+const LowStatus = styled(Status)`
+  background-color: var(--low-level-color);
+`;
 const Title = styled.div`
-  font-size:14px;
+  font-size: 14px;
   font-weight: 600;
 `;
 const TableBox = styled.div`
-   margin-top:10px
-  `;
+  margin-top: 10px;
+`;
 const useStyles2 = makeStyles({
   table: {
     minWidth: 500,
   },
-  container:{
-
-  }
+  container: {},
 });
 
+function getStatusHtml(status) {
+  switch (status) {
+    case 'h':
+      return <HightStatus>Nghiêm trọng</HightStatus>;
+      break;
+    case 'm':
+      return <MediumStatus>Bình thường</MediumStatus>;
+      break;
+    case 'l':
+      return <LowStatus>Thấp</LowStatus>;
+    default:
+      return <LowStatus>Thấp</LowStatus>;
+  }
+}
 function BlockTable({ title, rows, columns }) {
   const classes = useStyles2();
-  return <TableBox>
-    <Title>{title}</Title>
-    <RowHeader>
-      {columns.map(col => 
-        <div key={col.id} style={{ width: col.width,maxWidth:col.width }}>{col.title}</div>
-      )}
-    </RowHeader>
-    <Scrollbars style={{ width: "100%", height: 80 }}>
-      <TableContainer component={Paper} className={classes.container}>
-        <Table stickyHeader className={classes.table} >
-          {/* <TableHead className={classes.header}>
+  return (
+    <TableBox>
+      <Title>{title}</Title>
+      <RowHeader>
+        {columns.map(col => (
+          <div key={col.id} style={{ width: col.width, maxWidth: col.width }}>
+            {col.title}
+          </div>
+        ))}
+      </RowHeader>
+      <Scrollbars style={{ width: '100%', height: 100 }}>
+        <TableContainer component={Paper} className={classes.container}>
+          <Table stickyHeader className={classes.table}>
+            {/* <TableHead className={classes.header}>
             <TableRow>
                 {columns.map(column => (
                     <TableCell
@@ -74,31 +105,45 @@ function BlockTable({ title, rows, columns }) {
                 ))}
           </TableRow>
           </TableHead> */}
-          <TableBody>
-            {rows.map(row => (
-              <TableRow key={row.id}>
-                {columns.map(col => (
-                  <TableCell key={"cell"+col.id} style={{width:col.width,maxWidth:col.width, boxSizing:"border-box"}}>{row[col.id]}</TableCell>
-                ))}
-              </TableRow>
-            ))}
-            {/* {emptyRows > 0 && (
+            <TableBody>
+              {rows.map(row => (
+                <TableRow key={row.id}>
+                  {columns.map(col => {
+                    if (col.id == 'mucdo')
+                      return <TableCell key={`cell${col.id}`} style={{ width: col.width, maxWidth: col.width, boxSizing: "border-box" }}>{getStatusHtml(row[col.id])}</TableCell>
+                    return (
+                      <TableCell
+                        key={`cell${col.id}`}
+                        style={{
+                          width: col.width,
+                          maxWidth: col.width,
+                          boxSizing: 'border-box',
+                        }}
+                      >
+                        {row[col.id]}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              ))}
+              {/* {emptyRows > 0 && (
               <TableRow style={{ height: 53 * emptyRows }}>
                   <TableCell colSpan={6} />
               </TableRow>
           )} */}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Scrollbars>
-</TableBox>
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Scrollbars>
+    </TableBox>
+  );
 }
 
 // We require the use of src and alt, only enforced by react in dev mode
 BlockTable.propTypes = {
-  rows: PropTypes.array
-  , columns: PropTypes.array
-  , title: PropTypes.string
+  rows: PropTypes.array,
+  columns: PropTypes.array,
+  title: PropTypes.string,
 };
 
 export default BlockTable;
