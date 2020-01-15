@@ -110,7 +110,18 @@ function BlockTable({ title, rows, columns }) {
                 <TableRow key={row.id}>
                   {columns.map(col => {
                     if (col.id == 'mucdo')
-                      return <TableCell key={`cell${col.id}`} style={{ width: col.width, maxWidth: col.width, boxSizing: "border-box" }}>{getStatusHtml(row[col.id])}</TableCell>
+                      return (
+                        <TableCell
+                          key={`cell${col.id}`}
+                          style={{
+                            width: col.width,
+                            maxWidth: col.width,
+                            boxSizing: 'border-box',
+                          }}
+                        >
+                          {getStatusHtml(row[col.id])}
+                        </TableCell>
+                      );
                     return (
                       <TableCell
                         key={`cell${col.id}`}
