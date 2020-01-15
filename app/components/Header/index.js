@@ -22,6 +22,11 @@ const SMCHeader = styled.div`
   margin-left: calc(var(--side-menu-width) * -1);
   padding: 0px 20px 0px 20px;
 `
+const UserIconImage = styled.img`
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    `;
 const NavItem = styled(Link)`
   color: var(--main-text-color);
   text-decoration: none;
@@ -48,7 +53,7 @@ const UserIcon = styled(IconButton)`
     font-size:16px;
   }
 `
-function Header() {
+function Header({avatar}) {
   return (
     <SMCHeader id = "appHeader"> 
       <Logo></Logo> 
@@ -62,7 +67,8 @@ function Header() {
         <NavItem to="/">Quản trị</NavItem>
       </SMCNavBar>
       <UserIcon color="primary" aria-label="user info">
-      <FontAwesomeIcon icon={faUser} style={{color:"var(--main-gray-color)"}}/>
+        <UserIconImage src={avatar} alt="icon"/>
+      {/* <FontAwesomeIcon icon={faUser} style={{color:"var(--main-gray-color)"}}/> */}
       </UserIcon>
     </SMCHeader>
   );

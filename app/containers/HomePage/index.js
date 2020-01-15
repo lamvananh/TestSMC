@@ -61,7 +61,7 @@ export function HomePage({
         <title>Home Page</title>
         <meta
           name="description"
-          content="A React.js Boilerplate application homepage"
+          content="Smart city"
         />
       </Helmet>
       <div>
@@ -71,12 +71,7 @@ export function HomePage({
           <TroubleBlock></TroubleBlock>
           <EventBlock></EventBlock>
         </CenteredFlex>
-        <CenteredSection>
-          <Button variant="contained" color="primary">
-            Hello World
-          </Button>
-        </CenteredSection>
-        <Section>
+        {/* <Section>
           <H2>
             <FormattedMessage {...messages.trymeHeader} />
           </H2>
@@ -96,7 +91,7 @@ export function HomePage({
             </label>
           </Form>
           <ReposList {...reposListProps} />
-        </Section>
+        </Section> */}
       </div>
     </article>
   );

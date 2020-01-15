@@ -23,6 +23,8 @@ import { useInjectSaga } from 'utils/injectSaga';
 import { makeSelectCurrentUser,makeSelectError } from "./selectors"
 import { login } from "./actions";
 import styled from 'styled-components';
+import BackgroundImage from "../../../app/images/login_background.jpg";
+import Logo from 'components/Logo';
 
 const ErrorMessage = styled.div`
   color: var(--error-color);
@@ -73,9 +75,13 @@ export function LogIn({ onClickLogin,currentUser,error }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   return (
-    <Container component="main" maxWidth="xs">
+    <React.Fragment>
+    <div style={{zIndex:1, position:"fixed",width:"100%",height:"100%",backgroundSize:"cover", backgroundImage:`url(${BackgroundImage})`,width:"100%",height:"100%", backgroundSize:"cover"}}>
+    </div>
+    <Container className="login-container" component="main" maxWidth="xs" >
       <CssBaseline />
       <div className={classes.paper}>
+      {/* <Logo></Logo> */}
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
@@ -110,7 +116,7 @@ export function LogIn({ onClickLogin,currentUser,error }) {
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            label="Ghi nhớ tài khoản"
           />
           <Button
             type="button"
@@ -122,7 +128,7 @@ export function LogIn({ onClickLogin,currentUser,error }) {
           >
             Đăng nhập
           </Button>
-          <ErrorMessage>ERROR:{currentUser.error}</ErrorMessage>
+          {/* <ErrorMessage>ERROR:{currentUser.error}</ErrorMessage> */}
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
@@ -130,17 +136,16 @@ export function LogIn({ onClickLogin,currentUser,error }) {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
-                {"Không có tài khoản? Đăng ký"}
-              </Link>
+
             </Grid>
           </Grid>
         </form>
       </div>
       <Box mt={8}>
-        <Copyright />
+        {/* <Copyright /> */}
       </Box>
     </Container>
+    </React.Fragment>
   );
 }
 

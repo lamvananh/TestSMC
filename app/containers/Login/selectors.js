@@ -1,7 +1,10 @@
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
-const selectUser = state => state.currentUser || initialState;
+const selectUser = state =>{
+  console.log("initialState..........",state,initialState.currentUser);
+  return state.login || initialState;
+} 
 const selectError = state => state.error || initialState.currentUser.error;
 
 

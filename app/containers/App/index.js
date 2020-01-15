@@ -63,14 +63,14 @@ export function App({ currentUser }) {
   const layoutAuthenticated = <LayoutRow>
     <MenuBar></MenuBar>
     <LayoutColumn id="appContentContainer">
-      <Header />
+      <Header avatar = "http://ace.jeka.by/assets/images/avatars/profile-pic.jpg" />
       <Tabs></Tabs>
       <AppWrapper>
         <Helmet
-          titleTemplate="%s - React.js Boilerplate"
-          defaultTitle="React.js Boilerplate"
+          titleTemplate="%s - Smart city"
+          defaultTitle="Smart city"
         >
-          <meta name="description" content="A React.js Boilerplate application" />
+          <meta name="description" content="Smart city" />
         </Helmet>
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -79,7 +79,7 @@ export function App({ currentUser }) {
         </Switch>
         <GlobalStyle />
         <FlexItem />
-        <Footer />
+        {/* <Footer /> */}
       </AppWrapper>
     </LayoutColumn>
   </LayoutRow>
