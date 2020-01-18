@@ -31,7 +31,7 @@ const RowHeader = styled.div`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    color:var(--main-gray-color)
+    color: var(--main-gray-color);
   }
 `;
 const Status = styled.div`
@@ -47,11 +47,11 @@ const HightStatus = styled(Status)`
 `;
 const MediumStatus = styled(Status)`
   background-color: var(--medium-level-color);
-  width:70px;
+  width: 70px;
 `;
 const LowStatus = styled(Status)`
   background-color: var(--low-level-color);
-  width:50px;
+  width: 50px;
 `;
 const Title = styled.div`
   font-size: 14px;

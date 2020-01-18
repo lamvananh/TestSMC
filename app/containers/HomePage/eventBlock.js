@@ -21,7 +21,7 @@ Highcharts.setOptions({
   chart: {
     style: {
       fontFamily: 'Lato',
-    }
+    },
   },
   colors: [
     '#6ea0fd',
@@ -44,8 +44,8 @@ const EventBlockContainer = styled.div`
   grid-template-areas:
     'quantify percent'
     'table table';
-  & .scm-grid-item{
-    height:100%;
+  & .scm-grid-item {
+    height: 100%;
   }
 `;
 const QuantifyChart = styled.div`
@@ -90,11 +90,11 @@ export function EventBlock({ smcEvent }) {
   const ChatOp1 = {
     chart: {
       type: 'column',
-      height: "60%",
+      height: '60%',
     },
     title: {
       text: 'Số lượng sự kiện',
-      style:{ fontSize: "14px", fontWeight:600}         
+      style: { fontSize: '14px', fontWeight: 600 },
     },
     xAxis: {
       categories: ['HT1', 'HT2', 'HT3', 'HT4', 'HT5'],
@@ -141,7 +141,7 @@ export function EventBlock({ smcEvent }) {
           enabled: false,
         },
       },
-      borderRadius: 10
+      borderRadius: 10,
     },
     series: [
       {
@@ -207,7 +207,7 @@ export function EventBlock({ smcEvent }) {
     title: {
       text: 'Tỷ trọng sự kiện',
       margin: 20,
-      style:{ fontSize: "14px", fontWeight:600}        
+      style: { fontSize: '14px', fontWeight: 600 },
     },
     tooltip: {
       pointFormat: '<b>{point.percentage:.1f}%</b> \n {series.name}',
@@ -260,7 +260,11 @@ export function EventBlock({ smcEvent }) {
   const MainContent = (
     <EventBlockContainer className="scm-grid">
       <QuantifyChart className="scm-grid-item">
-        <HighchartsReact highcharts={Highcharts} options={ChatOp1} style={{height: 300}}  />
+        <HighchartsReact
+          highcharts={Highcharts}
+          options={ChatOp1}
+          style={{ height: 300 }}
+        />
       </QuantifyChart>
       <PercentChart className="scm-grid-item">
         <HighchartsReact
@@ -277,7 +281,7 @@ export function EventBlock({ smcEvent }) {
         />
       </NewEventTable>
       <div />
-    </EventBlockContainer >
+    </EventBlockContainer>
   );
   return (
     <Block

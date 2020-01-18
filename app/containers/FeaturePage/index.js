@@ -12,19 +12,16 @@ import messages from './messages';
 import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
-import logoParking from "../../../app/images/bai-do-xe-thong-minh.png"
+import logoParking from '../../images/bai-do-xe-thong-minh.png';
 
 export default function FeaturePage() {
   return (
     <div>
       <Helmet>
         <title>Feature Page</title>
-        <meta
-          name="description"
-          content="Quản lý đỗ xe"
-        />
+        <meta name="description" content="Quản lý đỗ xe" />
       </Helmet>
-    <img src ={logoParking} alt ="" style={{width:"100%"}}/>
+      <img src={logoParking} alt="" style={{ width: '100%' }} />
     </div>
   );
 }

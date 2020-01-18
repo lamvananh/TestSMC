@@ -8,7 +8,6 @@ import { initialState } from './reducer';
 const selectGlobal = state => state.global || initialState;
 const selectRouter = state => state.router;
 
-
 const makeSelectCurrentUser = () =>
   createSelector(
     selectGlobal,
@@ -50,5 +49,5 @@ export {
   makeSelectRepos,
   makeSelectLocation,
   makeSelectError,
-  makeSelectDisplayPopUp
+  makeSelectDisplayPopUp,
 };

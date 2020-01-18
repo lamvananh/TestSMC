@@ -16,22 +16,22 @@ import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import reducer from './reducer';
-import saga from './saga';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
-import { makeSelectCurrentUser, makeSelectError } from "./selectors"
-import { login } from "./actions";
 import styled from 'styled-components';
-import BackgroundImage from "../../../app/images/login_background.jpg";
-//import BackgroundImage from "../../../app/images/Canhquan.svg";
-import Logo from "../../../app/images/logo_color.png";
+import reducer from './reducer';
+import saga from './saga';
+import { makeSelectCurrentUser, makeSelectError } from './selectors';
+import { login } from './actions';
+import BackgroundImage from '../../images/login_background.jpg';
+// import BackgroundImage from "../../../app/images/Canhquan.svg";
+import Logo from '../../images/logo_color.png';
 
 const ErrorMessage = styled.div`
   color: var(--error-color);
   font-size: 14px;
 `;
-const key = "login";
+const key = 'login';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -68,21 +68,30 @@ const useStyles = makeStyles(theme => ({
 export function LogIn({ onClickLogin, currentUser, error }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
-  useEffect(() => {
-
-  });
-  console.log("error.....................", error);
+  useEffect(() => {});
+  console.log('error.....................', error);
   const classes = useStyles();
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <React.Fragment>
-      <div style={{ zIndex: 1, position: "fixed", width: "100%", height: "100%", backgroundSize: "cover", backgroundImage: `url(${BackgroundImage})`, width: "100%", height: "100%", backgroundSize: "cover" }}>
-      </div>
-      <Container className="login-container" component="main" maxWidth="xs" >
+      <div
+        style={{
+          zIndex: 1,
+          position: 'fixed',
+          width: '100%',
+          height: '100%',
+          backgroundSize: 'cover',
+          backgroundImage: `url(${BackgroundImage})`,
+          width: '100%',
+          height: '100%',
+          backgroundSize: 'cover',
+        }}
+      />
+      <Container className="login-container" component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          <img src={Logo} alt="logo" style ={{height:"75px"}} />
+          <img src={Logo} alt="logo" style={{ height: '75px' }} />
           {/* <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar> */}
@@ -128,23 +137,19 @@ export function LogIn({ onClickLogin, currentUser, error }) {
               onClick={() => onClickLogin({ userName, password })}
             >
               Đăng nhập
-          </Button>
+            </Button>
             {/* <ErrorMessage>ERROR:{currentUser.error}</ErrorMessage> */}
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Quên mật khẩu?
-              </Link>
+                </Link>
               </Grid>
-              <Grid item>
-
-              </Grid>
+              <Grid item />
             </Grid>
           </form>
         </div>
-        <Box mt={8}>
-          {/* <Copyright /> */}
-        </Box>
+        <Box mt={8}>{/* <Copyright /> */}</Box>
       </Container>
     </React.Fragment>
   );
@@ -156,26 +161,22 @@ LogIn.propTypes = {
   onClickLogin: PropTypes.func,
 };
 
-
 const mapStateToProps = createStructuredSelector({
   currentUser: makeSelectCurrentUser(),
-  error: makeSelectError()
+  error: makeSelectError(),
 });
 
 export function mapDispatchToProps(dispatch) {
   return {
     onClickLogin: evt => {
-      dispatch(login(evt))
-    }
+      dispatch(login(evt));
+    },
   };
 }
-
 
 const withConnect = connect(
   mapStateToProps,
   mapDispatchToProps,
 );
 
-export default compose(
-  withConnect
-)(LogIn);
+export default compose(withConnect)(LogIn);
