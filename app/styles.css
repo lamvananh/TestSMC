@@ -8,7 +8,7 @@
   --main-bg-color: #272e56;
   --main-text-light-color: #fff;
   --main-text-dark-color: #000;
-  --main-gray-color: #b7b7bb;
+  --main-gray-color: #8b949b;
   --header-color-1: #827b7b;  
   --tab-bar-background: #eaedef;
   --tab-bar-background-hover: #f9f9f9;
@@ -17,9 +17,9 @@
   --header-height:100px;
   --side-menu-width: 65px;
   --error-color:red;
-  --hight-level-color: #272e56;
-  --medium-level-color: #424d81;
-  --low-level-color: #898b92;
+  --hight-level-color: #253b65;
+  --medium-level-color: #345ca7;
+  --low-level-color: #6ea0fd;
 }
 .side-menu{
   background-color: #272e56 !important;
@@ -27,8 +27,14 @@
   position:fixed !important;
   top: var(--header-height) !important;
 }
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo, .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navtext---1AE_f {
+  color: #b1adad;
+}
+.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL {
+  min-width: 250px !important;
+}
 .highcharts-credits{
-  display: none !important;
+  display: none !important; 
 }
 
 #app{

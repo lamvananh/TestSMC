@@ -16,6 +16,15 @@ import { Link, Redirect } from 'react-router-dom';
 import { makeSideBarOpen } from './selectors';
 import { addTab } from '../Tabs/actions';
 import { changeSideBarOpened } from './actions';
+import homeLogo from "../../../app/images/menu_home.svg"
+import fireLogo from "../../../app/images/menu_fire.svg"
+import accessLogo from "../../../app/images/menu_access.svg"
+import starLogo from "../../../app/images/menu_star.svg"
+import bmsLogo from "../../../app/images/menu_bms.svg"
+import cameraLogo from "../../../app/images/menu_camera.svg"
+import parkingLogo from "../../../app/images/menu_parking.svg"
+import environmentLogo from "../../../app/images/040-enviroment.svg"
+import emergencyLogo from "../../../app/images/menu_emergency.svg"
 import $ from 'jquery';
 const key = 'menu';
 
@@ -38,7 +47,7 @@ export function MenuBar(props) {
 
   }
   return (
-    <React.Fragment>    
+    <React.Fragment>
       <SideNav className="side-menu" id="smcSideMenu"
         onSelect={(selected) => {
           // Add your code here
@@ -63,29 +72,94 @@ export function MenuBar(props) {
         <SideNav.Nav defaultSelected="home">
           <NavItem eventKey="home">
             <NavIcon>
-              <FontAwesomeIcon icon={faHome} style={{ fontSize: '1.75em' }} />
+              <img src={homeLogo} alt="menu" style={{width:"20px"}} />
             </NavIcon>
             <NavText>
               Home
           </NavText>
           </NavItem>
-          <NavItem eventKey="parking">
+          <NavItem eventKey="camera">
             <NavIcon>
-              <FontAwesomeIcon icon={faChartLine} style={{ fontSize: '1.75em' }} />
+              <img src={cameraLogo} alt="menu" style={{width:"25px"}} />
             </NavIcon>
             <NavText>
-              Parking
+              Quản lý Camera
+          </NavText>
+          </NavItem>
+          <NavItem eventKey="access-control">
+            <NavIcon>
+              <img src={accessLogo} alt="menu" style={{width:"20px"}} />
+            </NavIcon>
+            <NavText>
+              Quản lý vào ra
+          </NavText>
+          </NavItem>
+          <NavItem eventKey="intercom">
+            <NavIcon>
+              <img src={starLogo} alt="menu" style={{width:"20px"}} />
+            </NavIcon>
+            <NavText>
+              Hệ thống intercom
+          </NavText>
+          </NavItem>
+          <NavItem eventKey="fire">
+            <NavIcon>
+              <img src={fireLogo} alt="menu" style={{width:"25px"}} />
+            </NavIcon>
+            <NavText>
+              Hệ thống báo cháy
+          </NavText>
+          </NavItem>
+          <NavItem eventKey="trafic">
+            <NavIcon>
+              <img src={homeLogo} alt="menu" style={{width:"20px"}} />
+            </NavIcon>
+            <NavText>
+              Hệ thống giao thông
+          </NavText>
+          </NavItem>
+          <NavItem eventKey="bms">
+            <NavIcon>
+              <img src={bmsLogo} alt="menu" style={{width:"25px"}} />
+            </NavIcon>
+            <NavText>
+              Quản lý tòa nhà
+          </NavText>
+          </NavItem>
+          <NavItem eventKey="parking">
+            <NavIcon>
+              {/* <FontAwesomeIcon icon={faChartLine} style={{ fontSize: '1.75em' }} /> */}
+              <img src={parkingLogo} alt="menu" />
+            </NavIcon>
+            <NavText>
+              Hệ thống Đỗ xe
             </NavText>
             <NavItem eventKey="parking/manager">
               <NavText>
-                Manager
+                Quản lý
                 </NavText>
             </NavItem>
             <NavItem eventKey="parking/report">
               <NavText>
-                Report
+                Báo cáo
                 </NavText>
             </NavItem>
+          </NavItem>
+          <NavItem eventKey="environment">
+            <NavIcon>
+              <img src={environmentLogo} alt="menu" style={{width:"25px"}} />
+            </NavIcon>
+            <NavText>
+              Quan trắc môi trường
+          </NavText>
+          </NavItem>
+          <NavItem eventKey="emergency">
+            <NavIcon>
+              <img src={emergencyLogo} alt="menu" style={{width:"25px"}} />
+            </NavIcon>
+            <NavText>
+              Quản lý cảnh báo
+          </NavText>
           </NavItem>
         </SideNav.Nav>
       </SideNav>

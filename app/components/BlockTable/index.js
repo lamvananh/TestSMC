@@ -31,6 +31,7 @@ const RowHeader = styled.div`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color:var(--main-gray-color)
   }
 `;
 const Status = styled.div`
@@ -39,15 +40,18 @@ const Status = styled.div`
   color: var(--main-text-light-color);
   font-size: 12px;
   text-align: center;
+  width: 90px;
 `;
 const HightStatus = styled(Status)`
   background-color: var(--hight-level-color);
 `;
 const MediumStatus = styled(Status)`
   background-color: var(--medium-level-color);
+  width:70px;
 `;
 const LowStatus = styled(Status)`
   background-color: var(--low-level-color);
+  width:50px;
 `;
 const Title = styled.div`
   font-size: 14px;
@@ -69,7 +73,7 @@ function getStatusHtml(status) {
       return <HightStatus>Nghiêm trọng</HightStatus>;
       break;
     case 'm':
-      return <MediumStatus>Bình thường</MediumStatus>;
+      return <MediumStatus>Trung bình</MediumStatus>;
       break;
     case 'l':
       return <LowStatus>Thấp</LowStatus>;

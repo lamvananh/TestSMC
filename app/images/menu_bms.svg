@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39" height="29.577" viewBox="0 0 39 29.577">
+    <defs>
+        <style>
+            .cls-1,.cls-4{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{opacity:.9}.cls-4{stroke:#fff;stroke-width:3px}.cls-5{clip-path:url(#clip-path-2)}.cls-6{fill:#fff}.cls-7{clip-path:url(#clip-path-3)}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h39v29.577H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip-path-2">
+            <path d="M0 0h4v18H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip-path-3">
+            <path d="M0 0h39v19.5H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Symbol_12_1" class="cls-2" data-name="Symbol 12 – 1">
+        <g id="Group_48" class="cls-3" data-name="Group 48" transform="translate(-67 -148.923)">
+            <path id="Union_3" d="M5.363-1847.857v-28.543h12.786v28.547z" class="cls-4" data-name="Union 3" transform="translate(74.28 2025.328)"/>
+            <g id="Repeat_Grid_3" class="cls-5" data-name="Repeat Grid 3">
+                <g transform="translate(0 1)">
+                    <path id="Rectangle_33" d="M0 0h4v4H0z" class="cls-6" data-name="Rectangle 33" transform="translate(84 153)"/>
+                </g>
+                <g transform="translate(0 8)">
+                    <path id="Rectangle_33-2" d="M0 0h4v4H0z" class="cls-6" data-name="Rectangle 33" transform="translate(84 153)"/>
+                </g>
+                <g transform="translate(0 15)">
+                    <path id="Rectangle_33-3" d="M0 0h4v4H0z" class="cls-6" data-name="Rectangle 33" transform="translate(84 153)"/>
+                </g>
+            </g>
+            <path id="Line_44" d="M37 0H0" class="cls-4" data-name="Line 44" transform="translate(67.5 177.5)"/>
+            <g id="Repeat_Grid_4" class="cls-7" data-name="Repeat Grid 4">
+                <g transform="translate(-29)">
+                    <path id="Line_45" d="M0 13V0" class="cls-4" data-name="Line 45" transform="translate(100.5 164.5)"/>
+                    <circle id="Ellipse_58" cx="3.5" cy="3.5" r="3.5" class="cls-6" data-name="Ellipse 58" transform="translate(97 161)"/>
+                </g>
+                <g>
+                    <path id="Line_45-2" d="M0 13V0" class="cls-4" data-name="Line 45" transform="translate(100.5 164.5)"/>
+                    <circle id="Ellipse_58-2" cx="3.5" cy="3.5" r="3.5" class="cls-6" data-name="Ellipse 58" transform="translate(97 161)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

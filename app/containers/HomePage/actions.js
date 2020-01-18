@@ -15,7 +15,7 @@
  *    }
  */
 
-import { CHANGE_USERNAME } from './constants';
+import { CHANGE_USERNAME,CHANGE_POPUP_DISPPLAY } from './constants';
 
 /**
  * Changes the input field of the form
@@ -30,3 +30,4 @@ export function changeUsername(username) {
     username,
   };
 }
+

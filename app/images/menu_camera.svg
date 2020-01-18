@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32.548" height="30.863" viewBox="0 0 32.548 30.863">
+    <defs>
+        <style>
+            .cls-1{opacity:.9}.cls-2,.cls-5{fill:none}.cls-2{stroke:#fff;stroke-width:3px}.cls-3{fill:#fff}.cls-4{stroke:none}
+        </style>
+    </defs>
+    <g id="Symbol_8_1" data-name="Symbol 8 – 1" transform="translate(1.013)">
+        <g id="Group_17" class="cls-1" data-name="Group 17" transform="translate(-557.465 -161.094)">
+            <path id="Line_40" d="M0 0h7.035" class="cls-2" data-name="Line 40" transform="translate(557.465 183.997)"/>
+            <circle id="Ellipse_48" cx="3.136" cy="3.136" r="3.136" class="cls-3" data-name="Ellipse 48" transform="translate(562.391 180.861)"/>
+            <path id="Line_41" d="M4.983 0L0 4.693" class="cls-2" data-name="Line 41" transform="translate(566.517 178.717)"/>
+            <path id="Path_475" d="M1.452.143V15.2" class="cls-2" data-name="Path 475" transform="translate(556.5 176.76)"/>
+            <g id="Rectangle_28" class="cls-2" data-name="Rectangle 28">
+                <path d="M0 0h15.439v18.642H0z" class="cls-4" transform="rotate(-45 489.723 -595.01)"/>
+                <path d="M1.5 1.5h12.439v15.642H1.5z" class="cls-5" transform="rotate(-45 489.723 -595.01)"/>
+            </g>
+            <circle id="Ellipse_55" cx="2.5" cy="2.5" r="2.5" class="cls-3" data-name="Ellipse 55" transform="translate(584 180.217)"/>
+        </g>
+    </g>
+</svg>

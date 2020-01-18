@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28.654" height="28.654" viewBox="0 0 28.654 28.654">
+    <defs>
+        <style>
+            .cls-1,.cls-4{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{opacity:.9}.cls-4{stroke:#fff;stroke-width:3px}.cls-5{fill:#fff}.cls-6{stroke:none}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h28.654v28.654H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Symbol_10_1" class="cls-2" data-name="Symbol 10 – 1">
+        <g id="Group_38" class="cls-3" data-name="Group 38" transform="translate(-72 -151)">
+            <g id="Group_376" data-name="Group 376" transform="translate(72 151)">
+                <g id="Ellipse_56" class="cls-4" data-name="Ellipse 56">
+                    <circle cx="14.327" cy="14.327" r="14.327" class="cls-6"/>
+                    <circle cx="14.327" cy="14.327" r="12.827" class="cls-1"/>
+                </g>
+                <path id="Union_2" d="M2.728 14.044C.957 13.479 0 12.007 0 9.572S2.269-.281 2.429.008c.084.149 1.276 2.655 2.409 5.378 1.274-1.11 2.383-1.932 2.383-1.932s1.6 4.539 1.6 6.67a4.106 4.106 0 0 1-3.5 4 3.651 3.651 0 0 1-1.09.156 5.006 5.006 0 0 1-1.503-.236z" class="cls-5" data-name="Union 2" transform="translate(9.919 6.612)"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -4,7 +4,7 @@ import { LOGIN_ERROR,LOGIN_SUCCESS } from './constants';
 
 // The initial state of the App
 export const initialState = {
-  currentUser: {token:'122222',id:'',name:'',avatarUrl:'',  error:''},
+  currentUser: {token:'testtt',id:'',name:'',avatarUrl:'',  error:''},
   error:""
 };
 

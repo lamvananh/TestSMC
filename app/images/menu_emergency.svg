@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="27.475" height="32.632" viewBox="0 0 27.475 32.632">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#fff}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h27.475v32.632H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="emergency" class="cls-2">
+        <path id="Path_467" d="M57.975 13.815A1.275 1.275 0 0 1 56.7 15.09h-1.232v1.232a1.275 1.275 0 0 1-2.55 0V15.09h-1.233a1.275 1.275 0 1 1 0-2.55h1.232v-1.232a1.275 1.275 0 0 1 2.55 0v1.232H56.7a1.275 1.275 0 0 1 1.275 1.275zm5.925 9.634l-8.81 8.81a1.275 1.275 0 0 1-1.8 0l-8.81-8.81a13.734 13.734 0 1 1 19.423 0zm-1.8-17.62a11.184 11.184 0 0 0-15.816 15.817l7.909 7.909 7.907-7.909a11.2 11.2 0 0 0 0-15.817z" class="cls-3" data-name="Path 467" transform="translate(-40.455 -.001)"/>
+    </g>
+</svg>

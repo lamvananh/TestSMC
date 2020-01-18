@@ -21,7 +21,7 @@ const ItemTab = styled(Link)`
   min-width: 70px;
   background-color: #eaedef;
   height: 40px;
-  font-size: 13px;
+  font-size: 14px;
   padding: 10px 20px 5px 15px;
   color: var(--main-text-light-color);
   align-items: center;

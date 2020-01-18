@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24.454" height="26.128" viewBox="0 0 24.454 26.128">
+    <defs>
+        <style>
+            .cls-1,.cls-3{fill:none}.cls-2{opacity:.9}.cls-3{stroke:#fff;stroke-width:3px}.cls-4{clip-path:url(#clip-path)}.cls-5{fill:#fff}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h13.52v12.975H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Access" transform="translate(1.5 1.5)">
+        <g id="Access-2" class="cls-2" data-name="Access" transform="translate(-70.5 -152.5)">
+            <path id="Union_1" d="M0 23.128V0h21.454v23.128z" class="cls-3" data-name="Union 1" transform="translate(70.5 152.5)"/>
+            <g id="Repeat_Grid_1" class="cls-4" data-name="Repeat Grid 1">
+                <g transform="translate(.207 1.313)">
+                    <circle id="Ellipse_52" cx="2.5" cy="2.5" r="2.5" class="cls-5" data-name="Ellipse 52" transform="translate(75 156)"/>
+                </g>
+                <g transform="translate(8.207 1.313)">
+                    <circle id="Ellipse_52-2" cx="2.5" cy="2.5" r="2.5" class="cls-5" data-name="Ellipse 52" transform="translate(75 156)"/>
+                </g>
+                <g transform="translate(.207 9.313)">
+                    <circle id="Ellipse_52-3" cx="2.5" cy="2.5" r="2.5" class="cls-5" data-name="Ellipse 52" transform="translate(75 156)"/>
+                </g>
+                <g transform="translate(8.207 9.313)">
+                    <circle id="Ellipse_52-4" cx="2.5" cy="2.5" r="2.5" class="cls-5" data-name="Ellipse 52" transform="translate(75 156)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

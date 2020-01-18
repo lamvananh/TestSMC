@@ -5,7 +5,7 @@
  * Renders an image with size is 16px;
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import IconButton from '@material-ui/core/IconButton';
@@ -13,6 +13,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ZoomInIcon from '@material-ui/icons/ZoomIn';
+import FullScreenBlock from '../FullScreenBlock';
+import Backdrop from "../../components/Backdrop"
 
 
 const BlockContainer = styled.div`
@@ -59,59 +61,65 @@ const Header = styled.div`
 `;
 const Title = styled.div`
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 20px;
   color:  var(--main-text-dark-color);
   font-weight: 600;
 `
 const Description = styled.div`
-  font-size: 14px;
+  font-size: 18px;
   color:  var(--main-gray-color);
   margin-left:20px;
 `
 const ITEM_HEIGHT = 48;
 
 function Block({ title, description, countNumber, mainComponent, fullScreenComponent, menuConfig }) {
-  const FullScreenComponent = fullScreenComponent;
+  const [isFullScreen, setIsFullScreen] = useState("");
   let content = mainComponent;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
-
+const changePopupState = state =>{
+  setIsFullScreen(state);
+}
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+   const FullScreenDiv = isFullScreen ?<div> <Backdrop></Backdrop>
+    <FullScreenBlock callBackFunction = {changePopupState} isShow={true} title={title} description={description} mainComponent={mainComponent}></FullScreenBlock> 
+    </div>: null;
+  console.log("isFullScreen......", isFullScreen);
   return <BlockContainer>
-    <Header>
-      <Title>{title}</Title>
-      <Description>{description +(countNumber? ": "+countNumber:"")}</Description> 
-      <ButtonFullScreen>
-        <ZoomInIcon />
-      </ButtonFullScreen>
-      <ButtonShowMenu
-        aria-label="more"
-        aria-controls="long-menu"
-        aria-haspopup="true"
-        onClick={handleClick}
-      >
-        <MoreVertIcon />
-      </ButtonShowMenu>
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        {menuConfig.items.map(item =>{
-          return <MenuItem key = {item.id} onClick={(e)=> {menuConfig.onClick(item.id)}}>{item.title}</MenuItem>
-        })}
-      </Menu>
-    </Header>
-    {content}
-  </BlockContainer>;
+    {FullScreenDiv}
+      <Header>
+        <Title>{title}</Title>
+        <Description>{description + (countNumber ? ": " + countNumber : "")}</Description>
+        <ButtonFullScreen onClick={() => { setIsFullScreen(true) }}>
+          <ZoomInIcon />
+        </ButtonFullScreen>
+        <ButtonShowMenu
+          aria-label="more"
+          aria-controls="long-menu"
+          aria-haspopup="true"
+          onClick={handleClick}
+        >
+          <MoreVertIcon />
+        </ButtonShowMenu>
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          {menuConfig.items.map(item => {
+            return <MenuItem key={item.id} onClick={(e) => { menuConfig.onClick(item.id) }}>{item.title}</MenuItem>
+          })}
+        </Menu>
+      </Header>
+      {content}
+    </BlockContainer>;
 }
 
 // We require the use of src and alt, only enforced by react in dev mode
@@ -121,7 +129,7 @@ Block.propTypes = {
   , countNumber: PropTypes.string
   , mainComponent: PropTypes.any
   , fullScreenComponent: PropTypes.elementType
-  ,menuConfig: PropTypes.object.isRequired
+  , menuConfig: PropTypes.object.isRequired
 };
 
 export default Block;

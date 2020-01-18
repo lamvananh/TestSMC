@@ -21,12 +21,12 @@ Highcharts.setOptions({
   chart: {
     style: {
       fontFamily: 'Lato',
-    },
+    }
   },
   colors: [
-    '#272e56',
-    '#85899c',
-    '#404f98',
+    '#6ea0fd',
+    '#253b65',
+    '#345ca7',
     '#a8aab5',
     '#24CBE5',
     '#64E572',
@@ -44,6 +44,9 @@ const EventBlockContainer = styled.div`
   grid-template-areas:
     'quantify percent'
     'table table';
+  & .scm-grid-item{
+    height:100%;
+  }
 `;
 const QuantifyChart = styled.div`
   grid-area: quantify;
@@ -53,7 +56,7 @@ const PercentChart = styled.div`
 `;
 const NewEventTable = styled.div`
   width: 100%;
-  height: 150px;
+  height: 20%;
   grid-area: table;
   & .MuiTableCell-root {
     padding: 4px 10px;
@@ -68,12 +71,12 @@ function menuClick(e) {
 }
 
 const columns = [
-  { id: 'id', title: 'id', width: '50px' },
+  { id: 'id', title: 'id', width: '10%' },
   ,
-  { id: 'thoigian', title: 'Thời gian', width: '110px' },
-  { id: 'hethong', title: 'Hệ thống', width: '120px' },
-  { id: 'sukien', title: 'Sự kiện', width: '200px' },
-  { id: 'mucdo', title: 'Mức độ', width: '150px' },
+  { id: 'thoigian', title: 'Thời gian', width: '20%' },
+  { id: 'hethong', title: 'Hệ thống', width: '20%' },
+  { id: 'sukien', title: 'Sự kiện', width: '25%' },
+  { id: 'mucdo', title: 'Mức độ', width: '25%' },
 ];
 export function EventBlock({ smcEvent }) {
   useInjectReducer({ key, reducer });
@@ -87,10 +90,11 @@ export function EventBlock({ smcEvent }) {
   const ChatOp1 = {
     chart: {
       type: 'column',
-      height: '220px',
+      height: "60%",
     },
     title: {
       text: 'Số lượng sự kiện',
+      style:{ fontSize: "14px", fontWeight:600}         
     },
     xAxis: {
       categories: ['HT1', 'HT2', 'HT3', 'HT4', 'HT5'],
@@ -101,7 +105,7 @@ export function EventBlock({ smcEvent }) {
         text: '',
       },
       stackLabels: {
-        enabled: true,
+        enabled: false,
         style: {
           fontWeight: 'bold',
           color:
@@ -114,14 +118,14 @@ export function EventBlock({ smcEvent }) {
     },
     legend: {
       align: 'right',
-      x: -30,
-      verticalAlign: 'bottom',
+      x: 3,
+      verticalAlign: 'top',
       y: 25,
-      floating: true,
+      floating: false,
       backgroundColor:
         Highcharts.defaultOptions.legend.backgroundColor || 'white',
       borderColor: '#CCC',
-      borderWidth: 1,
+      borderWidth: 0,
       shadow: false,
     },
     tooltip: {
@@ -134,13 +138,14 @@ export function EventBlock({ smcEvent }) {
         backgroundColor: 'red',
         stacking: 'normal',
         dataLabels: {
-          enabled: true,
+          enabled: false,
         },
       },
+      borderRadius: 10
     },
     series: [
       {
-        name: 'Cao',
+        name: 'Nghiêm trọng',
         data: [5, 3, 4, 7, 2],
       },
       {
@@ -202,6 +207,7 @@ export function EventBlock({ smcEvent }) {
     title: {
       text: 'Tỷ trọng sự kiện',
       margin: 20,
+      style:{ fontSize: "14px", fontWeight:600}        
     },
     tooltip: {
       pointFormat: '<b>{point.percentage:.1f}%</b> \n {series.name}',
@@ -233,18 +239,18 @@ export function EventBlock({ smcEvent }) {
         colorByPoint: true,
         data: [
           {
-            name: 'Nghiêm trọng',
+            name: 'Thấp',
             y: 60,
             sliced: false,
             selected: true,
           },
           {
-            name: 'Thấp',
-            y: 30,
+            name: 'Nghiêm trọng',
+            y: 10,
           },
           {
             name: 'Trung bình',
-            y: 10,
+            y: 30,
           },
         ],
       },
@@ -252,18 +258,18 @@ export function EventBlock({ smcEvent }) {
   };
 
   const MainContent = (
-    <EventBlockContainer>
-      <QuantifyChart>
-        <HighchartsReact highcharts={Highcharts} options={ChatOp1} />
+    <EventBlockContainer className="scm-grid">
+      <QuantifyChart className="scm-grid-item">
+        <HighchartsReact highcharts={Highcharts} options={ChatOp1} style={{height: 300}}  />
       </QuantifyChart>
-      <PercentChart>
+      <PercentChart className="scm-grid-item">
         <HighchartsReact
           highcharts={Highcharts}
           options={chartPercent2Option}
         />
         {/* <Doughnut data ={chartPercentOptions}></Doughnut> */}
       </PercentChart>
-      <NewEventTable>
+      <NewEventTable className="scm-grid-item">
         <BlockTable
           title="Danh sách sự kiện mới"
           rows={smcEvent.table.rows}
@@ -271,7 +277,7 @@ export function EventBlock({ smcEvent }) {
         />
       </NewEventTable>
       <div />
-    </EventBlockContainer>
+    </EventBlockContainer >
   );
   return (
     <Block

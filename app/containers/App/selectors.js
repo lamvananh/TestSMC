@@ -37,6 +37,11 @@ const makeSelectLocation = () =>
     selectRouter,
     routerState => routerState.location,
   );
+const makeSelectDisplayPopUp = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.isPopupOpen,
+  );
 
 export {
   selectGlobal,
@@ -45,4 +50,5 @@ export {
   makeSelectRepos,
   makeSelectLocation,
   makeSelectError,
+  makeSelectDisplayPopUp
 };

@@ -1,4 +1,4 @@
-import React, { memo,useState,useEffect} from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -20,11 +20,12 @@ import reducer from './reducer';
 import saga from './saga';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
-import { makeSelectCurrentUser,makeSelectError } from "./selectors"
+import { makeSelectCurrentUser, makeSelectError } from "./selectors"
 import { login } from "./actions";
 import styled from 'styled-components';
 import BackgroundImage from "../../../app/images/login_background.jpg";
-import Logo from 'components/Logo';
+//import BackgroundImage from "../../../app/images/Canhquan.svg";
+import Logo from "../../../app/images/logo_color.png";
 
 const ErrorMessage = styled.div`
   color: var(--error-color);
@@ -64,87 +65,87 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export function LogIn({ onClickLogin,currentUser,error }) {
+export function LogIn({ onClickLogin, currentUser, error }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
   useEffect(() => {
 
   });
-  console.log("error.....................",error);
+  console.log("error.....................", error);
   const classes = useStyles();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   return (
     <React.Fragment>
-    <div style={{zIndex:1, position:"fixed",width:"100%",height:"100%",backgroundSize:"cover", backgroundImage:`url(${BackgroundImage})`,width:"100%",height:"100%", backgroundSize:"cover"}}>
-    </div>
-    <Container className="login-container" component="main" maxWidth="xs" >
-      <CssBaseline />
-      <div className={classes.paper}>
-      {/* <Logo></Logo> */}
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Đăng nhập
-        </Typography>
-        <form className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="userName"
-            label="Tên tài khoản"
-            name="username"
-            value={userName}
-            onChange={e => setUserName(e.target.value)}
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Mật khẩu"
-            type="password"
-            id="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Ghi nhớ tài khoản"
-          />
-          <Button
-            type="button"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            onClick={ () => onClickLogin({userName,password}) }
-          >
-            Đăng nhập
-          </Button>
-          {/* <ErrorMessage>ERROR:{currentUser.error}</ErrorMessage> */}
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Quên mật khẩu?
-              </Link>
-            </Grid>
-            <Grid item>
-
-            </Grid>
-          </Grid>
-        </form>
+      <div style={{ zIndex: 1, position: "fixed", width: "100%", height: "100%", backgroundSize: "cover", backgroundImage: `url(${BackgroundImage})`, width: "100%", height: "100%", backgroundSize: "cover" }}>
       </div>
-      <Box mt={8}>
-        {/* <Copyright /> */}
-      </Box>
-    </Container>
+      <Container className="login-container" component="main" maxWidth="xs" >
+        <CssBaseline />
+        <div className={classes.paper}>
+          <img src={Logo} alt="logo" style ={{height:"75px"}} />
+          {/* <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar> */}
+          {/* <Typography component="h1" variant="h5">
+            Đăng nhập
+        </Typography> */}
+          <form className={classes.form} noValidate>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="userName"
+              label="Tên tài khoản"
+              name="username"
+              value={userName}
+              onChange={e => setUserName(e.target.value)}
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Mật khẩu"
+              type="password"
+              id="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Ghi nhớ tài khoản"
+            />
+            <Button
+              type="button"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={() => onClickLogin({ userName, password })}
+            >
+              Đăng nhập
+          </Button>
+            {/* <ErrorMessage>ERROR:{currentUser.error}</ErrorMessage> */}
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Quên mật khẩu?
+              </Link>
+              </Grid>
+              <Grid item>
+
+              </Grid>
+            </Grid>
+          </form>
+        </div>
+        <Box mt={8}>
+          {/* <Copyright /> */}
+        </Box>
+      </Container>
     </React.Fragment>
   );
 }
