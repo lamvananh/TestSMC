@@ -14,8 +14,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ZoomInIcon from '@material-ui/icons/ZoomIn';
 import FullScreenBlock from '../FullScreenBlock';
-import Backdrop from "../Backdrop"
-
+import Backdrop from '../Backdrop';
 
 const BlockContainer = styled.div`
   border-radius: 10px;
@@ -87,58 +86,61 @@ function Block({
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
-  const changePopupState = state =>{
+  const changePopupState = state => {
     setIsFullScreen(state);
-  }
+  };
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const FullScreenDiv = isFullScreen ?<div> <Backdrop></Backdrop>
-      <FullScreenBlock
-        callBackFunction={changePopupState}
-        isShow={true}
-        title={title}
-        description={description}
-        mainComponent={mainComponent}
-      />
-  </div>
-   : null;
+  const FullScreenDiv = isFullScreen ? 
+    <div>
+      {' '}
+      <Backdrop />
+    <FullScreenBlock
+      callBackFunction={changePopupState}
+      isShow
+      title={title}
+      description={description}
+      mainComponent={mainComponent}
+    />
+    </div>
+    : null;
   console.log('isFullScreen......', isFullScreen);
   return (
     <BlockContainer>
       {FullScreenDiv}
-    <Header>
-      <Title>{title}</Title>
-      <Description>
-          {description + (countNumber ? ': ' + countNumber : '')}
+      <Header>
+        <Title>{title}</Title>
+        <Description>
+          {description + (countNumber ? `: ${  countNumber}` : '')}
         </Description>
-      <ButtonFullScreen
+        <ButtonFullScreen
           onClick={() => {
             setIsFullScreen(true);
           }}
         >
-        <ZoomInIcon />
-      </ButtonFullScreen>
-      <ButtonShowMenu
-        aria-label="more"
-        aria-controls="long-menu"
-        aria-haspopup="true"
-        onClick={handleClick}
-      >
-        <MoreVertIcon />
-      </ButtonShowMenu>
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        {menuConfig.items.map(item => <MenuItem key={item.id} onClick={(e) => { menuConfig.onClick(item.id) }}>{item.title}</MenuItem>)}
-      </Menu>
-    </Header>
-    {content}
-  </BlockContainer>
+          <ZoomInIcon />
+        </ButtonFullScreen>
+        <ButtonShowMenu
+          aria-label="more"
+          aria-controls="long-menu"
+          aria-haspopup="true"
+          onClick={handleClick}
+        >
+          <MoreVertIcon />
+        </ButtonShowMenu>
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          {menuConfig.items.map(item => <MenuItem key={item.id} onClick={(e) => { menuConfig.onClick(item.id) }}>{item.title}</MenuItem>)}
+        </Menu>
+      </Header>
+      {content}
+    </BlockContainer>
   );
 }
 
