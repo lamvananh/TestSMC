@@ -67,7 +67,7 @@ const NewEventTable = styled.div`
 `;
 
 function menuClick(e) {
-  console.log('eeeeeeeeeeeeeeeee', e);
+
 }
 
 const columns = [

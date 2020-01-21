@@ -31,6 +31,7 @@ import configureStore from './configureStore';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
+import { CookiesProvider } from 'react-cookie';
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
@@ -56,7 +57,9 @@ const render = messages => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <App />
+          <CookiesProvider>
+            <App />
+          </CookiesProvider>
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,

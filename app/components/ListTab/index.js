@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 function ListTab(props) {
-const ComponentToRender = props.component;
+  const ComponentToRender = props.component;
   let content = <div />;
-const ListTab = styled.div`
+  const ListTab = styled.div`
   display: flex;
   background-color: var(--main-bg-color);
   position:sticky;
@@ -21,7 +21,7 @@ const ListTab = styled.div`
     ));
   }
   return (
-      <ListTab>{content}</ListTab>
+    <ListTab>{content}</ListTab>
   );
 }
 
@@ -30,7 +30,7 @@ ListTab.propTypes = {
   items: PropTypes.array,
 };
 
-function isNotNeedRender(prevProp, nexrProp){
+function isNotNeedRender(prevProp, nexrProp) {
 
 }
 export default ListTab;

@@ -27,7 +27,7 @@ const key = 'smc-event-block';
 const TroubleBlockContainer = styled.div``;
 const TroubleChart = styled.div``;
 function menuClick(e) {
-  console.log('eeeeeeeeeeeeeeeee', e);
+
 }
 
 export function TroubleBlock({ smcTrouble }) {

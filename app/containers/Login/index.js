@@ -69,7 +69,6 @@ export function LogIn({ onClickLogin, currentUser, error }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
   useEffect(() => {});
-  console.log('error.....................', error);
   const classes = useStyles();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');

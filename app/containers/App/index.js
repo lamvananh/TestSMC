@@ -16,6 +16,7 @@ import { createStructuredSelector } from 'reselect';
 import reducer from 'reducer';
 import { useInjectReducer } from 'utils/injectReducer';
 import HomePage from 'containers/HomePage/Loadable';
+import Map from 'containers/Map/Loadable';
 import LogIn from 'containers/LogIn/Loadable';
 import Tabs from 'containers/Tabs/Loadable';
 import MenuBar from 'containers/MenuBar/Loadable';
@@ -27,6 +28,7 @@ import FlexItem from 'components/FlexItem';
 import { makeSelectCurrentUser } from '../Login/selectors'
 import GlobalStyle from '../../global-styles';
 import '../../styles.css';
+import { useCookies } from 'react-cookie';
 
 const key = "root-app"
 const AppWrapper = styled.div`
@@ -55,7 +57,7 @@ const LayoutColumn = styled.div`
 
 export function App({ currentUser }) {
   useInjectReducer({ key, reducer });
-  console.log("currentUser.token........", currentUser.token);
+  const [cookies, setCookie] = useCookies(['token']);
   const layoutUnauthor = <Switch>
     <Route exact path="/login" component={LogIn} />
     <Route path="" component={LogIn} />
@@ -63,7 +65,7 @@ export function App({ currentUser }) {
   const layoutAuthenticated = <LayoutRow>
     <MenuBar></MenuBar>
     <LayoutColumn id="appContentContainer">
-      <Header avatar = "http://ace.jeka.by/assets/images/avatars/profile-pic.jpg" />
+      <Header avatar="http://ace.jeka.by/assets/images/avatars/profile-pic.jpg" />
       <Tabs></Tabs>
       <AppWrapper>
         <Helmet
@@ -75,6 +77,7 @@ export function App({ currentUser }) {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/parking/manager" component={FeaturePage} />
+          <Route path="/map" component={Map} />
           <Route path="" component={NotFoundPage} />
         </Switch>
         <GlobalStyle />
@@ -85,7 +88,7 @@ export function App({ currentUser }) {
   </LayoutRow>
   return (
     <React.Fragment>
-      {currentUser.token ? layoutAuthenticated  : layoutUnauthor}
+      {cookies.token ? layoutAuthenticated : layoutUnauthor}
     </React.Fragment>
   );
 }

@@ -15,23 +15,25 @@ import { useInjectReducer } from 'utils/injectReducer';
 import messages from './messages';
 import { makeSelectTabList } from './selectors';
 import reducer from './reducer';
+import {addTab} from './actions';
 import TabList from './tabList'
+import tabLibrary from './tabCategory';
 const key = 'tabs';
 
 export function Tabs({
-  tabs
+  tabs,onAddTab
 }) {
   useInjectReducer({ key, reducer });
 
   useEffect(() => {
-    // load 3 mock tab to screen
-    //  onLoadMockTab();
+    if(tabs.length == 0){
+      onAddTab( window.location.pathname);     
+    }
   }, []);
 
   const tabListProps = {
     tabs
   };
-  console.log("TABBBBBBBBB",{...tabListProps});
   return (
     <React.Fragment>
       <TabList {...tabListProps}></TabList>
@@ -51,6 +53,7 @@ const mapStateToProps = createStructuredSelector({
 
 export function mapDispatchToProps(dispatch) {
   return {
+    onAddTab : (item)=> dispatch(addTab(item))
   };
 }
 

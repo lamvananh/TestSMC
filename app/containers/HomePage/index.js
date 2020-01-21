@@ -54,7 +54,6 @@ export function HomePage({
     error,
     repos
   };
-  console.log("44444444444444444444HOME", tabs);
   return (
     <article>
       <Helmet>

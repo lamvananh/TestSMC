@@ -12,6 +12,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { makeSelectTabList } from '../selectors';
 import reducer from '../reducer';
 import { changeTab, removeTab } from '../actions';
+
 const key = 'tab-item';
 const ItemTab = styled(Link)`
   position: relative;
@@ -80,8 +81,7 @@ const TabTitle = styled.div`
 `;
 export function TabItem(props) {
   useInjectReducer({ key, reducer });
-  const memoItem = props.item;
-  console.log('TabItem..........', memoItem.selected);
+  let memoItem = props.item;  
   return (
     <React.Fragment>
       <ItemTab
@@ -116,16 +116,16 @@ export function TabItem(props) {
           </svg>
         </CloseTabButton>
       </ItemTab>
-      {// redirect vể url tương ứng khi chỉ định tab được chọn
-        memoItem.selected && window.location.pathname != memoItem.url ? (
-          <Redirect to={memoItem.url} />
-        ) : null}
+     { memoItem.selected && <Redirect to={memoItem.url} />}
+      {/* {// redirect vể url tương ứng khi chỉ định tab được chọn    
+        memoItem.selected && window.location.pathname != memoItem.url && window.location.pathname == "/" ? (
+           <Redirect to={memoItem.url} />
+        ) : <Redirect to={window.location.pathname} />} */}
     </React.Fragment>
   );
 }
 
 function shouldNotRerender(prevProps, nextProps) {
-  console.log('PPPPPPP', prevProps);
   return false;
 }
 TabItem.propTypes = {
@@ -140,11 +140,9 @@ const mapStateToProps = createStructuredSelector({
 export function mapDispatchToProps(dispatch) {
   return {
     onChangeSelectedTab: item => {
-      console.log('tabItem click..........');
       dispatch(changeTab(item));
     },
     onRemoveTab: (event, item) => {
-      console.log('tabItem children click..........', event);
       dispatch(removeTab(item));
       event.stopPropagation();
       event.preventDefault();

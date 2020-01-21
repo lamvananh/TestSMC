@@ -4,7 +4,6 @@ import ListTab from 'components/ListTab';
 import TabItem from './TabItem';
 
 function TabList({ tabs }) {
-  console.log("TabList",tabs);
     return <ListTab items={tabs} component={TabItem} />;
 }
 

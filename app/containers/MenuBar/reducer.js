@@ -10,8 +10,7 @@ const menuReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case CHANGE_SIDE_MENU_STATE:
-        draft.sideMenuOpened = action.isOpened;
-        console.log("side menu state change......",action.isOpened);
+        draft.sideMenuOpened = action.isOpened;        
         break;
     }
   });

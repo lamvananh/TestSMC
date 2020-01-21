@@ -105,7 +105,6 @@ function Block({
     />
     </div>
     : null;
-  console.log('isFullScreen......', isFullScreen);
   return (
     <BlockContainer>
       {FullScreenDiv}

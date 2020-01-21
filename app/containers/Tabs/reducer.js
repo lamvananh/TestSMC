@@ -9,19 +9,17 @@
 
 import produce from 'immer';
 import { CHANGE_TAB, ADD_TAB, REMOVE_TAB } from './constants';
-const tabLibrary = [{ id: 1, name: "Dash board", iconSrc: "https://image.flaticon.com/icons/svg/148/148841.svg", selected: true, url: "/" }
-  , { id: 2, name: "Quản lý đỗ xe", iconSrc: "https://image.flaticon.com/icons/svg/148/148800.svg", selected: false, url: "/parking/manager" }
-  , { id: 3, name: "Quản lý phòng cháy chữa cháy", iconSrc: "https://image.flaticon.com/icons/svg/148/148800.svg", selected: false, url: "/fire-alarm" }];
+import tabLibrary from './tabCategory';
 // The initial state of the App
+console.log("Path............",window.location.pathname);
 export const initialState = {
-  tabs: [{ id: 1, name: "Dash board", iconSrc: "https://image.flaticon.com/icons/svg/148/148841.svg", selected: true, url: "/" }]
+  tabs: []
 };
 /* eslint-disable default-case, no-param-reassign */
 const tabReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case CHANGE_TAB:
-        console.log("reduce change.....", action);
         draft.tabs.map(item => item.id == action.selectedTab.id ? item.selected = true : item.selected = false);
         break;
       case REMOVE_TAB:
@@ -29,13 +27,11 @@ const tabReducer = (state = initialState, action) =>
         if (indexTab == 0 && draft.tabs.length == 1) {
             // neu la tab cuoi cung thi khong cho dong tab
 
-        } else {
-          console.log("indexTab tab reducer", indexTab);
+        } else {     
           draft.tabs = draft.tabs.filter(item => item.id != action.selectedTab.id);
           if (indexTab >= 0 && indexTab <= draft.tabs.length - 1) { // nếu còn có tab ở bên phải tab hiện tại
             if (!draft.tabs.find(item => item.selected == true)) {
-              draft.tabs[indexTab].selected = true;
-              console.log("tab reducer SELECTED...........", draft);
+              draft.tabs[indexTab].selected = true;            
             }
           } else if (indexTab > 0) {
             draft.tabs[indexTab - 1].selected = true;
@@ -54,7 +50,6 @@ const tabReducer = (state = initialState, action) =>
             draft.tabs.push({ ...itemInLibrary, selected: true });
           }
         }
-
         break;
     }
   });

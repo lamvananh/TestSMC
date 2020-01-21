@@ -53,7 +53,6 @@ export function MenuBar(props) {
         id="smcSideMenu"
         onSelect={selected => {
           // Add your code here
-          console.log('Menu......', selected);
           props.onAddTabItem(converKeyToPath(selected));
         }}
       >
@@ -84,7 +83,7 @@ export function MenuBar(props) {
             </NavIcon>
             <NavText>Home</NavText>
           </NavItem>
-          <NavItem eventKey="camera">
+          <NavItem eventKey="map">
             <NavIcon>
               <img src={cameraLogo} alt="menu" style={{ width: '25px' }} />
             </NavIcon>
